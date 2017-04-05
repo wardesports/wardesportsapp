@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  viewed: false
+  message: MyString
+  clicked: false
+  user: one
+  event: one
+  organizer: one
+
+two:
+  viewed: false
+  message: MyString
+  clicked: false
+  user: two
+  event: two
+  organizer: two
