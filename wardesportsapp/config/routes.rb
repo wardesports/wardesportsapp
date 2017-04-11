@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :notifications
   resources :games, only: [:show]
   resources :events, only: [:index, :new, :create, :show, :edit, :destroy]
