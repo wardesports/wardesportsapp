@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  # devise_for :users, controllers: {registrations: "registrations" }
   resources :notifications
   resources :games, only: [:show]
   resources :events, only: [:index, :new, :create, :show, :edit, :destroy]
