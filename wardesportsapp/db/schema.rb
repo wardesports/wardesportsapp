@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20170407201946) do
     t.string   "state"
     t.string   "country"
     t.string   "postalcode"
-    t.boolean  "admin"
+    t.boolean  "admin",                  default: false
     t.boolean  "organizer",              default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
