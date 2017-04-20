@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   # before_action :set_game (:update, :edit, :destroy)
 
   def index
