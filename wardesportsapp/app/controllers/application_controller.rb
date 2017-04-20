@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   def organizer?
     current_user.organizer
   end
-  
+
   protected
 
   def configure_permitted_parameters
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
       :firstname, :lastname, :email, :password, :password_confirmation, :remember_me) }
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(
       :username, :firstname, :lastname, :description, :email, :password, :password_confirmation,
-      :address1, :address2, :city, :state, :country, :postalcode, :admin,
+      :current_password, :address1, :address2, :city, :state, :country, :postalcode, :admin,
       :organizer, :email) }
   end
 
