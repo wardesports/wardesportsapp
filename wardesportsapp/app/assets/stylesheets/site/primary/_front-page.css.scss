@@ -1,0 +1,17 @@
+.header .inner {
+	display: flex;
+	justify-content: space-between;
+
+	padding: {
+		top: 50px;
+		bottom: 30px;
+	}
+
+	.user-options {
+		margin-left: -100px;
+
+		a {
+			margin-left: 100px;
+		}
+	}
+}
