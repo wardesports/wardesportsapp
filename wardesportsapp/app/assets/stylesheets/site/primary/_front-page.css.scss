@@ -1,10 +1,21 @@
-.header .inner {
-	display: flex;
-	justify-content: space-between;
+/*--------------------------------------------------------------
+## Header Styles
+--------------------------------------------------------------*/
+.header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	border-bottom: 2px solid #2D2D2D;
+	z-index: 2;
 
-	padding: {
-		top: 50px;
-		bottom: 30px;
+	.inner {
+		display: flex;
+		justify-content: space-between;
+		padding: {
+			top: 50px;
+			bottom: 30px;
+		}
 	}
 
 	.user-options {
@@ -14,4 +25,49 @@
 			margin-left: 100px;
 		}
 	}
+}
+
+/*--------------------------------------------------------------
+## Landing Styles
+--------------------------------------------------------------*/
+.landing {
+	border-bottom: 2px solid #2D2D2D;
+	z-index: 1;
+
+	> div {
+		position: relative;
+		text-align: center;
+		height: 650px;
+	}
+}
+
+.landing__content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/*--------------------------------------------------------------
+## Landing About Styles
+--------------------------------------------------------------*/
+
+.landing-about {
+	text-align: center;
+
+	.inner {
+		padding: {
+			top: 90px;
+			bottom: 90px;
+		}
+	}
+}
+
+.landing-about__content {
+	display: flex;
+	justify-content: space-between;
+
+	 div {
+	 	width: 300px;
+	 }
 }
