@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
     current_user.organizer
   end
 
+
+
   protected
 
   def configure_permitted_parameters

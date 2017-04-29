@@ -1,0 +1,61 @@
+<%= form_for @event do |f| %>
+      <div class="field">
+        <%= f.label :name, "Event Name" %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div><br>
+      <div class="field">
+        <%= f.label :description, "Description" %><br />
+        <%= f.text_area :description, autofocus: true %>
+      </div><br>
+      <div class="field">
+        <%= f.label :start, "Start Time" %><br />
+        <%= f.datetime_select :start, autofocus: true %>
+      </div><br>
+      <div class="field">
+        <%= f.label :end, "End Time" %><br />
+        <%= f.datetime_select :end, autofocus: true %>
+      </div><br>
+      <div class="field">
+        <%= f.label :address1, "Address 1" %><br />
+        <%= f.text_field :address1, autofocus: true %>
+      </div><br>
+      <div class="field">
+        <%= f.label :address2, "Address 2" %><br />
+        <%= f.text_field :address2, autofocus: true %>
+      </div><br>
+      <div class="field">
+        <%= f.label :city, "City" %><br />
+        <%= f.text_field :city, autofocus: true %>
+      </div><br>
+      <div class="field">
+        <%= f.label :state, "State" %><br />
+        <%= f.text_field :state, autofocus: true %>
+      </div><br>
+      <div class="field">
+        <%= f.label :country, "Country" %><br />
+        <%= f.text_field :country, autofocus: true %>
+      </div><br>
+      <div class="field">
+        <%= f.label :postalcode, "Zip Code" %><br />
+        <%= f.text_field :postalcode, autofocus: true %>
+      </div><br>
+      <div class="field">
+        <%= f.label :website, "Website URL" %><br />
+        <%= f.text_field :website, autofocus: true %>
+      </div><br>
+      <div class="field">
+        <%= f.label :links, "Additional Links" %><br />
+        <%= f.text_area :links, placeholder:"Twitch, Youtube, etc.", autofocus: true %>
+      </div><br>
+      <div class="field">
+        <%= f.label :type, "Event Type" %><br />
+        <%= f.text_field :type, autofocus: true %>
+      </div><br>
+
+
+      <div class="submit align-right">
+        <%= link_to "cancel", user_path(current_user), class: "btn btn-g btn-round btn-sm" %>
+        <button type="submit" class="btn btn-d btn-round btn-sm">Submit</button>
+      </div>
+
+  <% end %>

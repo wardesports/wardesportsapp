@@ -1,6 +1,10 @@
-<h1>Events Page</h1>
+<h1>Show Event Page</h1>
+<%= form_for @events do |f| %>
+  <%= f.label :first_name %>:
+  <%= f.text_field :first_name %><br />
 
-<% @events.each do |event| %>
-  <%=event.name  %>
+  <%= f.label :last_name %>:
+  <%= f.text_field :last_name %><br />
 
-  <%end%>
+  <%= f.submit %>
+<% end %>

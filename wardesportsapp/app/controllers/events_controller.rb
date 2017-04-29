@@ -1,8 +1,14 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  # before_action :set_event (:update, :edit, :destroy)
+  before_action :set_event, only: [:edit, :show, :update, :destroy]
 
   def index
+    @events = Event.all
+  end
+
+  def new
+    @event = Event.new
+    # @start_time = Time.now if @event.start_time.nil?
   end
 
   def create
@@ -16,12 +22,12 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def edit
+  end
+
   def update
     @event.update(event_params)
     redirect_to @event
-  end
-
-  def edit
   end
 
   def destroy
