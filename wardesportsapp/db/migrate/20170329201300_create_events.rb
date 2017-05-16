@@ -14,7 +14,9 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string :website
       t.text :links
       t.string :type
-
+      t.references :user, index:true, foreign_key: true
+      t.references :organizer, index: true
+      t.references :attendees, index: true
       t.timestamps
     end
   end

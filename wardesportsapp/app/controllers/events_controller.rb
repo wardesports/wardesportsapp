@@ -8,13 +8,16 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    # @start_time = Time.now if @event.start_time.nil?
   end
 
   def create
     @event = Event.new(event_params)
-    if event.save
+    userevents = Userevent.new(event_id: @event.id, user_id: current_user.id)
+    # binding.pry
+    if @event.save && userevents.save
+      # makse it faster to set instead of calling in to the db to check
       current_user.organizer = true
+      redirect_to events_path
     end
   end
 
@@ -43,7 +46,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:pet).permit(:name, :description, :start, :end,
+    params.require(:event).permit(:name, :description, :start, :end,
     :address1, :address2, :city, :state, :country, :postalcode, :website,
     :links, :type)
   end

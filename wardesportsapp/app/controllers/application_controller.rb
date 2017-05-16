@@ -2,10 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  # Verifies of current user is also an organizer
   def organizer?
     current_user.organizer
   end
-
 
 
   protected

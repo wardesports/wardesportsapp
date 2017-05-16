@@ -5,7 +5,9 @@ class CreateGames < ActiveRecord::Migration[5.0]
       t.text :description
       t.string :type
       t.string :version
-
+      t.references :event, index:true, foreign_key: true
+      t.references :user, index:true, foreign_key: true
+      t.references :organizer, index:true
       t.timestamps
     end
   end
