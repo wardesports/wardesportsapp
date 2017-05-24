@@ -4,6 +4,10 @@
         <%= f.text_field :name, autofocus: true %>
       </div><br>
       <div class="field">
+        <%= f.label :category, "Games (change this in DB and create a dropdown or checkboxes)" %><br />
+        <%= f.text_field :category, autofocus: true %>
+      </div><br>
+      <div class="field">
         <%= f.label :description, "Description" %><br />
         <%= f.text_area :description, autofocus: true %>
       </div><br>
@@ -47,10 +51,7 @@
         <%= f.label :links, "Additional Links" %><br />
         <%= f.text_area :links, placeholder:"Twitch, Youtube, etc.", autofocus: true %>
       </div><br>
-      <div class="field">
-        <%= f.label :type, "Event Type" %><br />
-        <%= f.text_field :type, autofocus: true %>
-      </div><br>
+
 
 
       <div class="submit align-right">

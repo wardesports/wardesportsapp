@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170407192955) do
     t.string   "postalcode"
     t.string   "website"
     t.text     "links"
-    t.string   "type"
+    t.string   "category"
     t.integer  "user_id"
     t.integer  "organizer_id"
     t.integer  "attendees_id"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20170407192955) do
   create_table "games", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "type"
+    t.string   "category"
     t.string   "version"
     t.integer  "event_id"
     t.integer  "user_id"

@@ -29,7 +29,7 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :description, :type, :version,
+    params.require(:game).permit(:name, :description, :category, :version,
     :user_id, :organizer_id, :event_id)
   end
 end

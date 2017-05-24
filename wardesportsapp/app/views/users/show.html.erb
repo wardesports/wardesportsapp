@@ -1,2 +1,7 @@
-<h1>Hello! <%=  current_user.firstname %></h1>
-<p>User's Dashboard page</p>
+<h1>Hello! <%=  current_user.first_name %></h1>
+<p>Upcoming events:</p>
+<%if current_user.events.any? == true %>
+  <p> <%= current_user.events.all %></p>
+  <%else  %>
+  <p>Looks like you aren't attending any events.</p>
+<%end %>

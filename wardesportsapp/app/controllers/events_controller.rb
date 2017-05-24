@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_event, only: [:edit, :show, :update, :destroy]
+  before_action :set_event, only: [:edit, :update, :destroy, :show]
+
+
 
   def index
     @events = Event.all
@@ -11,13 +13,12 @@ class EventsController < ApplicationController
   end
 
   def create
+    binding.pry
     @event = Event.new(event_params)
-    userevents = Userevent.new(event_id: @event.id, user_id: current_user.id)
-    # binding.pry
-    if @event.save && userevents.save
-      # makse it faster to set instead of calling in to the db to check
-      current_user.organizer = true
-      redirect_to events_path
+    current_user.organizer = true
+    @event.organizer_id = current_user.id
+    if @event.save
+      redirect_to event_path
     end
   end
 
@@ -48,6 +49,6 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :description, :start, :end,
     :address1, :address2, :city, :state, :country, :postalcode, :website,
-    :links, :type)
+    :links, :category, :organizer_id, :attendees_id)
   end
 end
