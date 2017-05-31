@@ -2,8 +2,6 @@ class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [:edit, :update, :destroy, :show]
 
-
-
   def index
     @events = Event.all
   end
@@ -13,7 +11,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    binding.pry
     @event = Event.new(event_params)
     current_user.organizer = true
     @event.organizer_id = current_user.id
@@ -23,7 +20,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @events = Event.all
   end
 
   def edit
@@ -40,7 +36,6 @@ class EventsController < ApplicationController
 
 
   private
-
   def set_event
     @event = Event.find(params[:id])
     @event.user_id == current_user.id ? true : false
