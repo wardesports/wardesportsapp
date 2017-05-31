@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    binding.pry
     @user.update(user_params)
     redirect_to current_user
   end

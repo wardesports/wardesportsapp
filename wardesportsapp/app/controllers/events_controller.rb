@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [:edit, :update, :destroy, :show]
+  helper_method :org_name
 
   def index
     @events = Event.all
@@ -34,8 +35,13 @@ class EventsController < ApplicationController
     @event.destroy
   end
 
+  def org_name
+    organizer = User.find(@event.organizer_id)
+    @org_name = organizer.organization_name
+  end
 
   private
+
   def set_event
     @event = Event.find(params[:id])
     @event.user_id == current_user.id ? true : false
