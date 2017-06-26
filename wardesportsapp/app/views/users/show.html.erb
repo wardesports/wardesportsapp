@@ -1,7 +1,11 @@
 <h1>Hello! <%=  current_user.first_name %></h1>
 <p>Upcoming events:</p>
-<%if current_user.events.any? == true %>
-  <p> <%= current_user.events.all %></p>
+<%if current_user.attendees.any? == true %>
+
+  <p> <% current_user.attendees.each do |event|%></p>
+      <% attendee_event = Event.find(event.event_id) %>
+      <%= link_to attendee_event.name, event_path(attendee_event.id) %>
+      <%end %>
   <%else  %>
   <p>Looks like you aren't attending any events.</p>
 <%end %>
