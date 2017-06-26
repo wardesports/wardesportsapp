@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407192955) do
+ActiveRecord::Schema.define(version: 20170621183002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendees", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_attendees_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_attendees_on_user_id", using: :btree
+  end
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -29,14 +38,10 @@ ActiveRecord::Schema.define(version: 20170407192955) do
     t.string   "website"
     t.text     "links"
     t.string   "category"
-    t.integer  "user_id"
     t.integer  "organizer_id"
-    t.integer  "attendees_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["attendees_id"], name: "index_events_on_attendees_id", using: :btree
     t.index ["organizer_id"], name: "index_events_on_organizer_id", using: :btree
-    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
   create_table "games", force: :cascade do |t|
@@ -84,7 +89,8 @@ ActiveRecord::Schema.define(version: 20170407192955) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "events", "users"
+  add_foreign_key "attendees", "events"
+  add_foreign_key "attendees", "users"
   add_foreign_key "games", "events"
   add_foreign_key "games", "users"
 end

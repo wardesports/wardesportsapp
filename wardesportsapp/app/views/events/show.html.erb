@@ -5,5 +5,11 @@ Location: <%= @event.address %>
 <br>
 Description: <%= @event.description %>
 <br>
-
 Organization Name: <%= org_name %>
+
+
+<%= link_to 'join', join_event_path(@event) %>
+
+<%= link_to 'leave', leave_event_path(@event) %>
+
+<!--  set logic to if already joined only show leave button-->

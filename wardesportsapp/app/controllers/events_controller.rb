@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_event, only: [:edit, :update, :destroy, :show]
-  helper_method :org_name
+  before_action :set_event, only: [:edit, :update, :destroy, :show, :join, :leave]
+  helper_method :org_name, :join, :leave
 
   def index
     @events = Event.all
@@ -13,10 +13,11 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    binding.pry
     current_user.organizer = true
     @event.organizer_id = current_user.id
     if @event.save
-      redirect_to event_path
+      redirect_to event_path(@event)
     end
   end
 
@@ -35,16 +36,31 @@ class EventsController < ApplicationController
     @event.destroy
   end
 
+  def join
+    binding.pry
+    current_user.events << @event
+    redirect_to @event
+  end
+
+  def leave
+    binding.pry
+    current_user.events.find(@event.id)
+    attendee = Attendee.find_by_user_id_and_event_id(current_user.id, @event.id)
+    attendee.delete
+    redirect_to @event
+  end
+
+  private
+
   def org_name
     organizer = User.find(@event.organizer_id)
     @org_name = organizer.organization_name
   end
 
-  private
-
   def set_event
     @event = Event.find(params[:id])
-    @event.user_id == current_user.id ? true : false
+    # This checks if current_user is an organizer or not.
+    @event.organizer_id == current_user.id ? true : false
   end
 
   def event_params
