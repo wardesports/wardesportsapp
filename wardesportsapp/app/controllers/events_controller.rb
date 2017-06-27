@@ -37,13 +37,11 @@ class EventsController < ApplicationController
   end
 
   def join
-    binding.pry
     current_user.events << @event
     redirect_to @event
   end
 
   def leave
-    binding.pry
     current_user.events.find(@event.id)
     attendee = Attendee.find_by_user_id_and_event_id(current_user.id, @event.id)
     attendee.delete
