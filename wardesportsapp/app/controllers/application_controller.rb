@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   # Verifies of current user is also an organizer
   def organizer?
-    current_user.organizer
+    current_user.organizer == true
   end
 
   def admin?
