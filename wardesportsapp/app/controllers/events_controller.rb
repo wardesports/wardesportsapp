@@ -48,12 +48,13 @@ class EventsController < ApplicationController
     redirect_to @event
   end
 
-  private
-
   def org_name
+    # not displayin the org.name in show
     organizer = User.find(@event.organizer_id)
     @org_name = organizer.organization_name
   end
+  private
+
 
   def set_event
     @event = Event.find(params[:id])
