@@ -13,7 +13,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    binding.pry
     current_user.organizer = true
     @event.organizer_id = current_user.id
     if @event.save
@@ -36,6 +35,8 @@ class EventsController < ApplicationController
     @event.destroy
   end
 
+  private
+
   def join
     current_user.events << @event
     redirect_to @event
@@ -49,12 +50,9 @@ class EventsController < ApplicationController
   end
 
   def org_name
-    # not displayin the org.name in show
     organizer = User.find(@event.organizer_id)
     @org_name = organizer.organization_name
   end
-  private
-
 
   def set_event
     @event = Event.find(params[:id])

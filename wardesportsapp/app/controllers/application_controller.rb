@@ -8,8 +8,9 @@ class ApplicationController < ActionController::Base
     current_user.organizer == true
   end
 
+  # Verifies of current user is also an admin
   def admin?
-    current_user.admin
+    current_user.admin == true
   end
 
 
