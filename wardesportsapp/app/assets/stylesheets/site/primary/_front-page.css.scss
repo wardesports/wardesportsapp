@@ -45,30 +45,10 @@
 ## Landing Styles
 --------------------------------------------------------------*/
 .landingSearch {
-	height: 300px;
+	height: 350px;
+	margin-top: 123px;
+	padding-top: 50px;
 	background-color: #222222;
-}
-
-/*--------------------------------------------------------------
-## Landing About Styles
---------------------------------------------------------------*/
-
-.landing-about {
+	color: #ffffff;
 	text-align: center;
-
-	.inner {
-		padding: {
-			top: 90px;
-			bottom: 90px;
-		}
-	}
-}
-
-.landing-about__content {
-	display: flex;
-	justify-content: space-between;
-
-	 div {
-	 	width: 300px;
-	 }
 }
