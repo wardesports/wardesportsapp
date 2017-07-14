@@ -1,0 +1,34 @@
+/*--------------------------------------------------------------
+## Sign Up/Log In
+--------------------------------------------------------------*/
+.sign-up-log-in {
+	background-color: #222222;
+	height: 100vh;
+
+	.sign-up-log-in-form {
+		background-color: #ffffff;
+		width: 350px;
+		margin: 0 auto;
+		border-radius: 5px;
+		padding: 20px 40px;
+
+		h2 {
+			margin-bottom: 30px;
+		}
+
+		input {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+
+		.actions input {
+			width: 100px;
+			margin-top: 20px;
+		}
+
+		.remember-me input {
+			display: inline-block;
+			width: initial;
+		}
+	}
+}
