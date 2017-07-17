@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   # before_action :set_game (:update, :edit, :destroy)
 
   def index
@@ -29,7 +29,7 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :description, :type, :version,
+    params.require(:game).permit(:name, :description, :category, :version,
     :user_id, :organizer_id, :event_id)
   end
 end
