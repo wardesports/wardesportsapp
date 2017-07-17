@@ -1,0 +1,12 @@
+<h1>All Events Page</h1>
+<!-- refactor this -->
+<% if @events.all.any? == true %>
+  <% @events.each do |event| %>
+    <li>
+      <%= link_to event.name, event_path(event.id)  %>
+    </li>
+  <% end %>
+<%else %>
+<p>If there are no events near you, would you like to become a host?</p>
+<%= link_to "Create Event", new_event_path%>
+<%end  %>
