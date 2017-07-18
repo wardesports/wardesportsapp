@@ -13,10 +13,11 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    binding.pry
-    current_user.organizer = true
+    # Set to true everytime so it doesn't make a call to the database initially and everytime after.
     @event.organizer_id = current_user.id
+    current_user.organizer = true
     if @event.save
+      current_user.save
       redirect_to event_path(@event)
     end
   end
@@ -34,8 +35,12 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
+    redirect_to user_organizer_index_path(current_user)
   end
 
+  private
+
+########### start - move this to model #############
   def join
     current_user.events << @event
     redirect_to @event
@@ -49,12 +54,10 @@ class EventsController < ApplicationController
   end
 
   def org_name
-    # not displayin the org.name in show
     organizer = User.find(@event.organizer_id)
     @org_name = organizer.organization_name
   end
-  private
-
+########### end - move this to model #############
 
   def set_event
     @event = Event.find(params[:id])

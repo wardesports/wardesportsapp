@@ -1,6 +1,7 @@
 
 <p>Events you've organized</p>
 
+<!-- refactor this -->
 <p> <% @events.each do |event|%></p>
     <% organizer_event = Event.find(event.organizer_id) %>
     <%= link_to organizer_event.name, event_path(organizer_event.id) %>
