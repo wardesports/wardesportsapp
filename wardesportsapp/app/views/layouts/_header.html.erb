@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="header">
 	<div class="inner">
 		<div class="logo">
@@ -18,3 +19,18 @@
 		</div>
 	</div>
 </div>
+=======
+<%= link_to 'Home', root_path, :class => 'navbar-link' %> |
+<% if user_signed_in? %>
+    <%= link_to "All Events", events_path%> |
+    <%= link_to "Upcoming", user_path(current_user)%> |
+    <%if organizer? %>
+    <%= link_to "Organizer", user_organizer_index_path(current_user)%> |
+    <%end %>
+    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> |
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+>>>>>>> 7d53c56e32648433a5ccfdecf6f75c8d2e1b579e

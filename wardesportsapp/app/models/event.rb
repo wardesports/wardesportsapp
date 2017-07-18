@@ -1,8 +1,10 @@
 class Event < ApplicationRecord
-  has_many :userevents
-  has_many :attendees, through: :userevents, class_name: "User", :foreign_key => "user_id"
-  has_many :eventgames
-  has_many :games, through: :eventgames
-  belongs_to :organizers, class_name: "User", :foreign_key => "user_id"
-  has_many :notifications, dependent: :destroy
+  has_many :games, dependent: :destroy
+  has_many :attendees, dependent: :destroy
+  has_many :users, :through => :attendees
+  belongs_to :organizer, foreign_key: :organizer_id, class_name: 'User'
+
+  def address
+    "#{address1} #{address2} #{city} #{state} #{postalcode}"
+  end
 end

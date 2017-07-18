@@ -1,8 +1,5 @@
 class Game < ApplicationRecord
-  has_many :userevents, dependent: :destroy
-  has_many :users, through: :userevents
-  has_many :eventgames
-  has_many :games, through: :eventgames
-  has_many :organizers
-  has_many :notifications, dependent: :destroy
+  belongs_to :event
+  belongs_to :user
+  belongs_to :organizer, foreign_key: :organizer_id, class_name: 'User'
 end

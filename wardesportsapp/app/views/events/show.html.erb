@@ -1,4 +1,22 @@
-<% @events.each do |event| %>
-  <%=event.name  %>
+<p>event page</p>
+Name: <%= @event.name %>
+<br>
+Location: <%= @event.address %>
+<br>
+Description: <%= @event.description %>
+<br>
+Organization Name: <%= org_name %>
 
-  <%end%>
+
+<%if current_user.events.any? == false%>
+  <%= link_to 'join', join_event_path(@event) %>
+  <%else%>
+    <% current_user.events.each do |event|%>
+      <% current_user_event = Event.find(event.id) %>
+        <% if event.id == current_user_event.id %>
+            <%= link_to 'leave', leave_event_path(@event) %>
+          <%else %>
+            <%= link_to 'join', join_event_path(@event) %>
+        <%end%>
+    <%end%>
+<%end%>

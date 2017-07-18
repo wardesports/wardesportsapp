@@ -2,8 +2,8 @@
 
 one:
   username: MyString
-  firstname: MyString
-  lastname: MyString
+  first_name: MyString
+  last_name: MyString
   email: MyString
   description: MyText
   password_digest: MyString
@@ -19,8 +19,8 @@ one:
 
 two:
   username: MyString
-  firstname: MyString
-  lastname: MyString
+  first_name: MyString
+  last_name: MyString
   email: MyString
   description: MyText
   password_digest: MyString

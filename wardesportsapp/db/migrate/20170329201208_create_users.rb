@@ -2,10 +2,9 @@ class CreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
       t.string :username
-      t.string :firstname
-      t.string :lastname
+      t.string :first_name
+      t.string :last_name
       t.text :description
-      t.string :password_digest
       t.string :organization_name
       t.string :address1
       t.string :address2
@@ -13,8 +12,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :state
       t.string :country
       t.string :postalcode
-      t.boolean :admin
-      t.boolean :organizer
+      t.boolean :admin, :default => false
+      t.boolean :organizer, :default => false
 
       t.timestamps
     end
