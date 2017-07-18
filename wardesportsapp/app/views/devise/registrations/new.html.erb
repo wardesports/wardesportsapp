@@ -7,12 +7,12 @@
         <%= devise_error_messages! %>
 
         <div class="field">
-          <%= f.label :firstame %><br />
+          <%= f.label :first_name, "First Name" %><br />
           <%= f.text_field :firstname, autofocus: true %>
         </div>
 
         <div class="field">
-          <%= f.label :lastname %><br />
+          <%= f.label :last_name, "Last Name" %><br />
           <%= f.text_field :lastname, autofocus: true %>
         </div>
 
@@ -30,7 +30,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation %><br />
+          <%= f.label :password_confirmation, "Password Confirmation" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
 
