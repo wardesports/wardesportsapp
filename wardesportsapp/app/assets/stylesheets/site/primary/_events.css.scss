@@ -2,7 +2,31 @@
 ## Events
 --------------------------------------------------------------*/
 .events-all,
-.events-upcoming {
+.events-upcoming, {
 	background-color: #222222;
 	color: #ffffff;
+}
+
+.event-create {
+	background-color: #222222;
+	color: #ffffff;
+
+	h1 {
+		margin-bottom: 50px;
+	}
+
+	.form {
+		color: #333333;
+		background-color: #ffffff;
+		max-width: 500px;
+		margin: 0 auto;
+		border-radius: 5px;
+		padding: 20px 40px;
+
+		input,
+		textarea {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+	}
 }
