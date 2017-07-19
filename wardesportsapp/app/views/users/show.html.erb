@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section>
 	<div class="inner">
 		<h1>Hello! <%=  current_user.firstname %></h1>
@@ -13,3 +14,22 @@
 		<%end %>
 	</div>
 </section>
+=======
+<h1>Hello! <%=  current_user.first_name %></h1>
+<p>Upcoming events:</p>
+<!-- refactor the below -->
+<%if current_user.attendees.any? == true %>
+  <p> <% current_user.attendees.each do |event|%></p>
+      <% attendee_event = Event.find(event.event_id) %>
+      <%= link_to attendee_event.name, event_path(attendee_event.id) %>
+      <%end %>
+  <%else  %>
+  <p>Looks like you aren't attending any events.</p>
+<%end %>
+
+
+<p>Would you like to host an event?</p>
+<p>
+  <%= link_to'Create Event', new_event_path %>
+</p>
+>>>>>>> master
