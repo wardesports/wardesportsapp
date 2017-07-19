@@ -39,15 +39,22 @@
 	}
 }
 
-.event-details {
-	background-color: #ffffff;
-	color: #333333;
-	max-width: 500px;
-	margin: 0 auto;
-	border-radius: 5px;
-	padding: 40px;
 
-	p {
-		margin-bottom: 40px;
+.event-single {
+	.event-details {
+		background-color: #ffffff;
+		color: #333333;
+		max-width: 500px;
+		margin: 0 auto;
+		border-radius: 5px;
+		padding: 40px;
+
+		p {
+			margin-bottom: 40px;
+		}
+}
+
+	.event-controls {
+		margin-top: 20px;
 	}
 }
