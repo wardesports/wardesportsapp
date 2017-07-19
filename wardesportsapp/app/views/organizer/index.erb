@@ -4,3 +4,13 @@
 
 
 <p>Events you've organized</p>
+<!-- refactor this -->
+<%if @events.any? == false %>
+  <p>You currently dont have any events</p>
+<%else%>
+  <% @events.each do |event|%>
+    <% if current_user.id == event.organizer_id%>
+      <%= link_to event.name, event_path(event.id) %>
+      <%end %>
+    <%end %>
+<%end %>
