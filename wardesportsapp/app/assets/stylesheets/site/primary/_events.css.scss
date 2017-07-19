@@ -3,7 +3,8 @@
 --------------------------------------------------------------*/
 .events-all,
 .events-upcoming,
-.event-single {
+.event-single,
+.event-edit {
 	background-color: #222222;
 	color: #ffffff;
 }
@@ -56,5 +57,17 @@
 
 	.event-controls {
 		margin-top: 20px;
+	}
+}
+
+.event-edit {
+	.form {
+		background-color: #ffffff;
+		color: #333333;
+		padding: 40px;
+		border-radius: 5px;
+		max-width: 500px;
+		margin: 0 auto;
+		text-align: left;
 	}
 }
