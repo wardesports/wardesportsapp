@@ -1,4 +1,4 @@
-<section>
+<section class="events content">
 	<div class="inner">
 		<h1>All Events Page</h1>
 		<!-- refactor this -->
@@ -10,7 +10,7 @@
 		  <% end %>
 		<%else %>
 		<p>If there are no events near you, would you like to become a host?</p>
-		<%= link_to "Create Event", new_event_path%>
+		<%= link_to "Create Event", new_event_path, :class => 'btn btn-primary' %>
 		<%end  %>
 	</div>
 </section>
