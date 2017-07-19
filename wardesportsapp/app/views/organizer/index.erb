@@ -12,7 +12,7 @@
 		<%else%>
 		  <% @events.each do |event|%>
 		    <% if current_user.id == event.organizer_id%>
-		      <%= link_to event.name, event_path(event.id) %>
+		      <h2><%= link_to event.name, event_path(event.id) %></h2>
 		      <%end %>
 		    <%end %>
 		<%end %>
