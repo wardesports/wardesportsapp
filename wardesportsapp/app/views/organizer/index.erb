@@ -1,11 +1,11 @@
-<section>
+<section class="content organizer">
 	<div class="inner">
 		<p>
-		  <%= link_to'Create New Event', new_event_path %>
+		  <%= link_to'Create New Event', new_event_path, :class => 'btn btn-primary' %>
 		</p>
 
 
-		<p>Events you've organized</p>
+		<p class="lead">Events you've organized</p>
 		<!-- refactor this -->
 		<%if @events.any? == false %>
 		  <p>You currently dont have any events</p>
