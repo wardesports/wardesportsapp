@@ -1,56 +1,56 @@
 <div class="form">
 <%= form_for @event do |f| %>
-      <div class="field">
+      <div class="field form-group ">
         <%= f.label :name, "Event Name" %><br />
-        <%= f.text_field :name, autofocus: true %>
+        <%= f.text_field :name, autofocus: true, :class => 'form-control' %>
       </div><br>
-      <div class="field">
+      <div class="field form-group ">
         <%= f.label :category, "Games (change this in DB and create a dropdown or checkboxes)" %><br />
-        <%= f.text_field :category, autofocus: true %>
+        <%= f.text_field :category, autofocus: true, :class => 'form-control' %>
       </div><br>
-      <div class="field">
+      <div class="field form-group ">
         <%= f.label :description, "Description" %><br />
-        <%= f.text_area :description, autofocus: true %>
+        <%= f.text_area :description, autofocus: true, :class => 'form-control' %>
       </div><br>
-      <div class="field">
+      <div class="field form-group ">
         <%= f.label :start, "Start Time" %><br />
-        <%= f.datetime_select :start, autofocus: true %>
+        <%= f.datetime_select :start, autofocus: true, :class => 'form-control' %>
       </div><br>
-      <div class="field">
+      <div class="field form-group ">
         <%= f.label :end, "End Time" %><br />
-        <%= f.datetime_select :end, autofocus: true %>
+        <%= f.datetime_select :end, autofocus: true, :class => 'form-control' %>
       </div><br>
-      <div class="field">
+      <div class="field form-group ">
         <%= f.label :address1, "Address 1" %><br />
-        <%= f.text_field :address1, autofocus: true %>
+        <%= f.text_field :address1, autofocus: true, :class => 'form-control' %>
       </div><br>
-      <div class="field">
+      <div class="field form-group ">
         <%= f.label :address2, "Address 2" %><br />
-        <%= f.text_field :address2, autofocus: true %>
+        <%= f.text_field :address2, autofocus: true, :class => 'form-control' %>
       </div><br>
-      <div class="field">
+      <div class="field form-group ">
         <%= f.label :city, "City" %><br />
-        <%= f.text_field :city, autofocus: true %>
+        <%= f.text_field :city, autofocus: true, :class => 'form-control' %>
       </div><br>
-      <div class="field">
+      <div class="field form-group ">
         <%= f.label :state, "State" %><br />
-        <%= f.text_field :state, autofocus: true %>
+        <%= f.text_field :state, autofocus: true, :class => 'form-control' %>
       </div><br>
-      <div class="field">
+      <div class="field form-group ">
         <%= f.label :country, "Country" %><br />
-        <%= f.text_field :country, autofocus: true %>
+        <%= f.text_field :country, autofocus: true, :class => 'form-control' %>
       </div><br>
-      <div class="field">
+      <div class="field form-group ">
         <%= f.label :postalcode, "Zip Code" %><br />
-        <%= f.text_field :postalcode, autofocus: true %>
+        <%= f.text_field :postalcode, autofocus: true, :class => 'form-control' %>
       </div><br>
-      <div class="field">
+      <div class="field form-group ">
         <%= f.label :website, "Website URL" %><br />
-        <%= f.text_field :website, autofocus: true %>
+        <%= f.text_field :website, autofocus: true, :class => 'form-control' %>
       </div><br>
-      <div class="field">
+      <div class="field form-group ">
         <%= f.label :links, "Additional Links" %><br />
-        <%= f.text_area :links, placeholder:"Twitch, Youtube, etc.", autofocus: true %>
+        <%= f.text_area :links, placeholder:"Twitch, Youtube, etc.", autofocus: true, :class => 'form-control' %>
       </div><br>
 
 
