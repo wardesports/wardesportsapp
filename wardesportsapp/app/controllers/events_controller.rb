@@ -38,9 +38,7 @@ class EventsController < ApplicationController
     redirect_to user_organizer_index_path(current_user)
   end
 
-  private
-
-########### start - move this to model #############
+  ########### start - move this to model #############
   def join
     current_user.events << @event
     redirect_to @event
@@ -57,7 +55,9 @@ class EventsController < ApplicationController
     organizer = User.find(@event.organizer_id)
     @org_name = organizer.organization_name
   end
-########### end - move this to model #############
+  ########### end - move this to model #############
+  private
+
 
   def set_event
     @event = Event.find(params[:id])

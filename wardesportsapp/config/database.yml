@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: wardesportsapp_production
-  username: wardesportsapp
-  password: <%= ENV['WARDESPORTSAPP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

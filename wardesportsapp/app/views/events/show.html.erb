@@ -19,8 +19,11 @@ Category: <%= @event.category %>
 <br>
 
 <!-- refactor the below -->
-<% if !organizer?%>
-
+<% if current_user.id == @event.organizer_id %>
+<!-- Checks if the current user is creator of the event -->
+    <%= link_to 'Edit',edit_event_path(@event) %>
+    <%= link_to "Delete", event_path(@event), remote: true, method: :delete%>
+<%else %>
   <%if current_user.events.any? == false%>
     <%= link_to 'join', join_event_path(@event) %>
     <%else%>
@@ -34,7 +37,4 @@ Category: <%= @event.category %>
       <%end%>
   <%end%>
 
-  <%else %>
-    <%= link_to 'Edit',edit_event_path(@event) %>
-    <%= link_to "Delete", event_path(@event), remote: true, method: :delete%>
 <%end %>
