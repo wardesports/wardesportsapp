@@ -1,5 +1,5 @@
 <section>
- <div class="inner">
+  <div class="inner">
     <p>event page</p>
     Name of the Event: <%= @event.name %>
     <br>
@@ -20,10 +20,12 @@
     Category: <%= @event.category %>
     <br>
 
-<<<<<<< HEAD
     <!-- refactor the below -->
-    <% if !organizer?%>
-
+    <% if current_user.id == @event.organizer_id %>
+    <!-- Checks if the current user is creator of the event -->
+        <%= link_to 'Edit',edit_event_path(@event) %>
+        <%= link_to "Delete", event_path(@event), remote: true, method: :delete%>
+    <%else %>
       <%if current_user.events.any? == false%>
         <%= link_to 'join', join_event_path(@event) %>
         <%else%>
@@ -34,33 +36,9 @@
                 <%else %>
                   <%= link_to 'join', join_event_path(@event) %>
               <%end%>
-=======
-<!-- refactor the below -->
-<% if current_user.id == @event.organizer_id %>
-<!-- Checks if the current user is creator of the event -->
-    <%= link_to 'Edit',edit_event_path(@event) %>
-    <%= link_to "Delete", event_path(@event), remote: true, method: :delete%>
-<%else %>
-  <%if current_user.events.any? == false%>
-    <%= link_to 'join', join_event_path(@event) %>
-    <%else%>
-      <% current_user.events.each do |event|%>
-        <% current_user_event = Event.find(event.id) %>
-          <% if event.id == current_user_event.id %>
-              <%= link_to 'leave', leave_event_path(@event) %>
-            <%else %>
-              <%= link_to 'join', join_event_path(@event) %>
->>>>>>> master
           <%end%>
       <%end%>
 
-<<<<<<< HEAD
-      <%else %>
-        <%= link_to 'Edit',edit_event_path(@event) %>
-        <%= link_to "Delete", event_path(@event), remote: true, method: :delete%>
     <%end %>
-</div>
+  </div>
 </section>
-=======
-<%end %>
->>>>>>> master
