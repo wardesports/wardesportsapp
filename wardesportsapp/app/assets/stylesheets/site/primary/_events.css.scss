@@ -2,7 +2,8 @@
 ## Events
 --------------------------------------------------------------*/
 .events-all,
-.events-upcoming, {
+.events-upcoming,
+.event-single {
 	background-color: #222222;
 	color: #ffffff;
 }
@@ -30,4 +31,13 @@
 			margin-bottom: 10px;
 		}
 	}
+}
+
+.event-details {
+	background-color: #ffffff;
+	color: #333333;
+	max-width: 500px;
+	margin: 0 auto;
+	border-radius: 5px;
+	padding: 40px;
 }

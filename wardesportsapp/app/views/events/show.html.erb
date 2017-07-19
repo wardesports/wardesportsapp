@@ -1,24 +1,18 @@
-<section class="content">
+<section class="content event-single">
   <div class="inner">
-    <p>event page</p>
-    Name of the Event: <%= @event.name %>
-    <br>
-    Location: <%= @event.address %>
-    <br>
-    Description: <%= @event.description %>
-    <br>
-    Organization Name: <%= org_name %>
-    <br>
-    Start Time: <%= @event.start_time %>
-    <br>
-    End Time: <%= @event.end_time %>
-    <br>
-    Website: <%= @event.website %>
-    <br>
-    Links: <%= @event.links %>
-    <br>
-    Category: <%= @event.category %>
-    <br>
+    <h1>Event Page</h1>
+
+    <div class="event-details">
+      <h2>Name of the Event:</h2> <p class="lead"><%= @event.name %></p>
+      <h2>Location:</h2> <p class="lead"><%= @event.address %></p>
+      <h2>Description:</h2> <p class="lead"><%= @event.description %></p>
+      <h2>Organization Name:</h2> <p class="lead"><%= org_name %></p>
+      <h2>Start Time:</h2> <p class="lead"><%= @event.start_time %></p>
+      <h2>End Time:</h2> <p class="lead"><%= @event.end_time %></p>
+      <h2>Website:</h2> <p class="lead"><%= @event.website %></p>
+      <h2>Links:</h2> <p class="lead"><%= @event.links %></p>
+      <h2>Category:</h2> <p class="lead"><%= @event.category %></p>
+    </div>
 
     <!-- refactor the below -->
     <% if current_user.id == @event.organizer_id %>
