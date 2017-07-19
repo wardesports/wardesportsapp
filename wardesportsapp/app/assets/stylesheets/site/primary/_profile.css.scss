@@ -1,33 +1,17 @@
 /*--------------------------------------------------------------
-## Events
+## Profile
 --------------------------------------------------------------*/
-.events-all,
-.events-upcoming, {
+.profile-edit {
 	background-color: #222222;
 	color: #ffffff;
-}
-
-.event-create {
-	background-color: #222222;
-	color: #ffffff;
-
-	h1 {
-		margin-bottom: 50px;
-	}
 
 	.form {
 		text-align: left;
-		color: #333333;
 		background-color: #ffffff;
+		color: #333333;
 		max-width: 600px;
 		margin: 0 auto;
 		border-radius: 5px;
 		padding: 20px 40px;
-
-		input,
-		textarea {
-			width: 100%;
-			margin-bottom: 10px;
-		}
 	}
 }
