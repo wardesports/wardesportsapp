@@ -12,29 +12,29 @@
       <h2>Website:</h2> <p class="lead"><%= @event.website %></p>
       <h2>Links:</h2> <p class="lead"><%= @event.links %></p>
       <h2>Category:</h2> <p class="lead"><%= @event.category %></p>
-    </div>
 
-    <!-- refactor the below -->
-    <% if current_user.id == @event.organizer_id %>
-    <!-- Checks if the current user is creator of the event -->
-    <div class="event-controls">
-        <%= link_to 'Edit',edit_event_path(@event), :class => 'btn btn-primary' %>
-        <%= link_to "Delete", event_path(@event), remote: true, method: :delete, :class => 'btn btn-primary' %>
+
+      <!-- refactor the below -->
+      <% if current_user.id == @event.organizer_id %>
+      <!-- Checks if the current user is creator of the event -->
+      <div class="event-controls">
+          <%= link_to 'Edit',edit_event_path(@event), :class => 'btn btn-primary' %>
+          <%= link_to "Delete", event_path(@event), remote: true, method: :delete, :class => 'btn btn-primary' %>
       </div>
-    <%else %>
-      <%if current_user.events.any? == false%>
-        <%= link_to 'join', join_event_path(@event) %>
-        <%else%>
-          <% current_user.events.each do |event|%>
-            <% current_user_event = Event.find(event.id) %>
-              <% if event.id == current_user_event.id %>
-                  <%= link_to 'leave', leave_event_path(@event) %>
-                <%else %>
-                  <%= link_to 'join', join_event_path(@event) %>
-              <%end%>
-          <%end%>
-      <%end%>
-
-    <%end %>
+      <%else %>
+        <%if current_user.events.any? == false%>
+          <%= link_to 'join', join_event_path(@event), :class => 'btn btn-primary' %>
+          <%else%>
+            <% current_user.events.each do |event|%>
+              <% current_user_event = Event.find(event.id) %>
+                <% if event.id == current_user_event.id %>
+                    <%= link_to 'Leave', leave_event_path(@event), :class => 'btn btn-primary' %>
+                  <%else %>
+                    <%= link_to 'Join', join_event_path(@event), :class => 'btn btn-primary' %>
+                <%end%>
+            <%end%>
+        <%end%>
+      <%end %>
+    </div>
   </div>
 </section>
