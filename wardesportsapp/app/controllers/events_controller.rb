@@ -4,7 +4,11 @@ class EventsController < ApplicationController
   helper_method :org_name, :join, :leave
 
   def index
-    @events = Event.all
+    @events = EventFinder.find_events(params[:lat], params[:long])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new

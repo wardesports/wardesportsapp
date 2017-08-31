@@ -38,6 +38,9 @@ gem 'devise'
 # Debugging
 gem 'pry-rails'
 
+#Geocoder
+gem 'geocoder'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
