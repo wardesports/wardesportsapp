@@ -23,7 +23,7 @@
       </div>
       <%else %>
         <%if current_user.events.any? == false%>
-          <%= link_to 'join', join_event_path(@event), :class => 'btn btn-primary' %>
+          <%= link_to 'Join', join_event_path(@event), :class => 'btn btn-primary' %>
           <%else%>
             <% current_user.events.each do |event|%>
               <% current_user_event = Event.find(event.id) %>
