@@ -14,7 +14,7 @@ function getLocation() {
 function getEvent(position) {
   $.ajax({
     dataType : "script",
-    url: `/events?lat=${position.coords.latitude}&long=${position.coords.longitude}`,
+    url: "/events?lat=${position.coords.latitude}&long=${position.coords.longitude}",
 
   });
 }
