@@ -1,0 +1,7 @@
+<% if events.all.any? == true %>
+  <% events.each do |event| %>
+  <li>
+    <%= link_to event.name, event_path(event.id)  %>
+  </li>
+  <% end %>
+<% end %>

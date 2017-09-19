@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section class="events-all content">
 	<div class="inner">
 		<h1>All Events Page</h1>
@@ -14,3 +15,19 @@
 		<%end  %>
 	</div>
 </section>
+=======
+<h1>All Events Page</h1>
+<div id="all-events">
+  <!-- refactor this -->
+  <% if @events.all.any? == true %>
+  <% @events.each do |event| %>
+  <li>
+    <%= link_to event.name, event_path(event.id)  %>
+  </li>
+  <% end %>
+  <%else %>
+  <p>If there are no events near you, would you like to become a host?</p>
+  <%= link_to "Create Event", new_event_path%>
+  <%end  %>
+</div>
+>>>>>>> 4fd5310e8f122cae79200fc64b2e4ed0f00266b6
