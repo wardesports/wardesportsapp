@@ -14,7 +14,6 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string :website
       t.text :links
       t.string :category
-      t.references :organizer, index: true
       t.timestamps
     end
   end
