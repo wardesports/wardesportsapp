@@ -14,6 +14,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string :website
       t.text :links
       t.string :category
+      t.references :group
       t.timestamps
     end
   end

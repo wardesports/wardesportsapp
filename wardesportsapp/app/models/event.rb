@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
-  has_many :games, dependent: :destroy
+  has_many :event_games
+  has_many :games, through: :event_games, source: :game, dependent: :destroy
   has_many :attendees, foreign_key: :attendee_id, class_name: 'User'
   has_many :users, :through => :attendees
   belongs_to :group
