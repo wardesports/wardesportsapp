@@ -9,7 +9,7 @@
 
 user_1 = User.create(username:"cindyk09", first_name:"Cindy", last_name:"Kim", description:"I am a person", address1:"230 flatbush", city:"brooklyn", state:"NY",postalcode: "11217", email: "cindyk09@gmail.com", password:"qwerty", password_confirmation:"qwerty")
 user_2 = User.create(username:"Your Boi", first_name:"Daisy", last_name:"Kim", description:"I am a person", address1:"4018", city:"flushing", state:"NY",postalcode: "11354", email: "lala@gmail.com", password:"qwerty", password_confirmation:"qwerty")
-user_3 = User.create(username:"Evans", first_name:"Wangtron", last_name:"Kim", description:"I am a person", address1:"4018", city:"flushing", state:"NY",postalcode: "11354", email: "lala@gmail.com", password:"qwerty", password_confirmation:"qwerty")
+user_3 = User.create(username:"Evans", first_name:"Wangtron", last_name:"Kim", description:"I am a person", address1:"4018", city:"flushing", state:"NY",postalcode: "11354", email: "evansahoe@gmail.com", password:"qwerty", password_confirmation:"qwerty")
 
 group_1 = Group.create!(name:"Kelly Kelzz group of pain", description:"ouchie magouchie lil bro")
 group_2 = Group.create!(name:"Wangtron", description:"working")
@@ -36,3 +36,5 @@ game_2 = Game.create!(name:"CS",description: "something", category:"1", version:
 
 EventGame.create!(event: event_1, game: game_1)
 EventGame.create!(event: event_1, game: game_2)
+
+print "seeded it it"

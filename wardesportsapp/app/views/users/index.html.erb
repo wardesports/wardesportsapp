@@ -1,0 +1,3 @@
+<% current_user.hosted_groups.each do |hosted_group| %>
+  <%= link_to hosted_group.name, groups_path(hosted_group.id) %>
+<%end %>

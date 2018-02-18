@@ -1,17 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  helper_method :organizer?, :admin?
+  # helper_method :organizer?, :admin?
 
-  # Verifies of current user is also an organizer
-  def organizer?
-    current_user.organizer == true
-  end
-
-  # Verifies of current user is also an admin
-  def admin?
-    current_user.admin == true
-  end
+  # # Verifies of current user is also an organizer
+  # def organizer?
+  #   current_user.organizer == true
+  # end
+  #
+  # # Verifies of current user is also an admin
+  # def admin?
+  #   current_user.admin == true
+  # end
 
 
   protected

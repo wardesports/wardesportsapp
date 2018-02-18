@@ -44,7 +44,7 @@ class EventsController < ApplicationController
 
   ########### start - move this to model #############
   def join
-    current_user.events << @event
+    Attendee.create!(user: current_user, event: @event)
     redirect_to @event
   end
 
