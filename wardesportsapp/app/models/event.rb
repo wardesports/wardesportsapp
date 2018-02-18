@@ -1,9 +1,9 @@
 class Event < ApplicationRecord
   has_many :event_games
   has_many :games, through: :event_games, source: :game, dependent: :destroy
-  has_many :attendees, foreign_key: :attendee_id, class_name: 'User'
-  has_many :users, :through => :attendees
+  has_many :attendees
   belongs_to :group
+  
 
   geocoded_by :address
   after_validation :geocode

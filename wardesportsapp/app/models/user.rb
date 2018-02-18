@@ -10,6 +10,6 @@ class User < ApplicationRecord
   has_many :hosted_groups, through: :host_groups, source: :group
   has_many :participated_groups, through: :member_groups, source: :group
 
-  # has_many :events, :dependent => :destroy
-  # has_many :groups, :dependent => :destroy
+  has_many :events, :dependent => :destroy
+  has_many :attendees
 end
