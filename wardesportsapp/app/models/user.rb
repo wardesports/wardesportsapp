@@ -4,8 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :events, :through => :attendees
-  has_many :games, dependent: :destroy
-  has_many :attendees, :dependent => :destroy
+  has_many :host_groups
+  has_many :member_groups
 
+  has_many :hosted_groups, through: :host_groups, source: :group
+  has_many :participated_groups, through: :member_groups, source: :group
+
+  # has_many :events, :dependent => :destroy
+  # has_many :groups, :dependent => :destroy
 end
