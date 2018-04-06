@@ -18,12 +18,12 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     # Set to true everytime so it doesn't make a call to the database initially and everytime after.
-    @event.organizer_id = current_user.id
-    current_user.organizer = true
-    if @event.save
-      current_user.save
-      redirect_to event_path(@event)
-    end
+    # @event.organizer_id = current_user.id
+    # current_user.organizer = true
+    # if @event.save
+    #   current_user.save
+    #   redirect_to event_path(@event)
+    # end
   end
 
   def show
@@ -44,21 +44,21 @@ class EventsController < ApplicationController
 
   ########### start - move this to model #############
   def join
-    current_user.events << @event
+    Attendee.create!(event_id: @event.id, user_id: current_user.id)
     redirect_to @event
   end
 
   def leave
-    current_user.events.find(@event.id)
+
     attendee = Attendee.find_by_user_id_and_event_id(current_user.id, @event.id)
-    attendee.delete
+    attendee.destroy
     redirect_to @event
   end
 
-  def org_name
-    organizer = User.find(@event.organizer_id)
-    @org_name = organizer.organization_name
-  end
+  # def org_name
+  #   organizer = User.find(@event.organizer_id)
+  #   @org_name = organizer.organization_name
+  # end
   ########### end - move this to model #############
   private
 
@@ -66,7 +66,7 @@ class EventsController < ApplicationController
   def set_event
     @event = Event.find(params[:id])
     # This checks if current_user is an organizer or not.
-    @event.organizer_id == current_user.id ? true : false
+    # @event.organizer_id == current_user.id ? true : false
   end
 
   def event_params

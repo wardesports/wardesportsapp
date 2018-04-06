@@ -5,8 +5,6 @@ Location: <%= @event.address %>
 <br>
 Description: <%= @event.description %>
 <br>
-Organization Name: <%= org_name %>
-<br>
 Start Time: <%= @event.start_time %>
 <br>
 End Time: <%= @event.end_time %>
@@ -19,22 +17,16 @@ Category: <%= @event.category %>
 <br>
 
 <!-- refactor the below -->
-<% if current_user.id == @event.organizer_id %>
+
+<% if host?(@event)%>
 <!-- Checks if the current user is creator of the event -->
     <%= link_to 'Edit',edit_event_path(@event) %>
     <%= link_to "Delete", event_path(@event), remote: true, method: :delete%>
-<%else %>
-  <%if current_user.events.any? == false%>
-    <%= link_to 'join', join_event_path(@event) %>
-    <%else%>
-      <% current_user.events.each do |event|%>
-        <% current_user_event = Event.find(event.id) %>
-          <% if event.id == current_user_event.id %>
-              <%= link_to 'leave', leave_event_path(@event) %>
-            <%else %>
-              <%= link_to 'join', join_event_path(@event) %>
-          <%end%>
-      <%end%>
-  <%end%>
-
 <%end %>
+<% if !host?(@event)%>
+  <%unless attending?(@event)%>
+    <%= link_to 'join', join_event_path(@event) %>
+    <%else %>
+    <%= link_to 'leave', leave_event_path(@event) %>
+  <%end%>
+<%end%>

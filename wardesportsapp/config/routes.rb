@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :groups
   devise_for :users, controllers: {registrations: "registrations" }
+
+  resources :users
+  resources :groups
   resources :games
 
   resources :events do
@@ -8,10 +10,6 @@ Rails.application.routes.draw do
       get 'join'
       get 'leave'
     end
-  end
-
-  resources :users do
-    resources :organizer
   end
 
   root "welcome#index"
